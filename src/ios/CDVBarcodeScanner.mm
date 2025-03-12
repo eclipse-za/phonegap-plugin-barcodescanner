@@ -339,7 +339,9 @@ parentViewController:(UIViewController*)parentViewController
 
 //--------------------------------------------------------------------------
 - (void)scanBarcode {
-
+    if (@available(iOS 13.0, *)) {
+        [self.viewController setModalPresentationStyle:UIModalPresentationFullScreen];
+    }
 //    self.captureSession = nil;
 //    self.previewLayer = nil;
     NSString* errorMessage = [self setUpCaptureSession];
